@@ -3,7 +3,6 @@
 require 'spec_helper'
 
 describe ImporterController do
-
   describe 'GET "index"' do
     it 'returns http success' do
       get 'index'
@@ -15,7 +14,7 @@ describe ImporterController do
   describe 'POST "create"' do
     let(:file) { fixture_file_upload('example_input.tab') }
 
-    it 'should do something' do
+    it 'should upload and process file' do
       ImportFileProcessor.should_receive(:run).with(file)
 
       post 'create', file: file
@@ -23,5 +22,4 @@ describe ImporterController do
       expect(response).to redirect_to(root_path)
     end
   end
-
 end
