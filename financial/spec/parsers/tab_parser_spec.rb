@@ -5,6 +5,16 @@ require_relative '../../app/parsers/tab_parser'
 describe TabParser do
   let(:file) { File.open('./spec/fixtures/example_input.tab') }
 
+  describe '#process' do
+    it 'should delegate to an instance parser' do
+      parser = double(:parser)
+      parser.should_receive(:process!)
+      TabParser.should_receive(:new).with(file).and_return(parser)
+
+      TabParser.process(file)
+    end
+  end
+
   subject { TabParser.new(file) }
 
   before { subject.process! }
