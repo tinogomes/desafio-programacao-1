@@ -1,6 +1,8 @@
+# encoding: utf-8
+
 source 'https://rubygems.org'
 
-gem "unicorn-rails"
+gem 'unicorn-rails'
 gem 'jquery-rails'
 gem 'rails', '4.0.0'
 gem 'sass-rails', '~> 4.0.0'
@@ -12,9 +14,10 @@ group :doc do
 end
 
 group :development, :test do
-  gem "brakeman"
-  gem "guard-rspec"
-  gem "pry-debugger"
-  gem "rspec-rails"
-  gem "rubocop"
+  gem 'brakeman'
+  gem 'guard-rspec'
+  gem 'guard-rubocop'
+  gem 'pry-debugger'
+  gem 'rspec-rails'
+  gem 'rubocop'
 end
