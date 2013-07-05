@@ -14,10 +14,10 @@ class TabParser
       normalize(row.to_hash)
     end
   end
-  
+
   def normalize(hash)
     {}.tap do |resulting|
-      hash.map {|key, value| resulting[slugify(key)] = value }
+      hash.map { |key, value| resulting[slugify(key)] = value }
     end
   end
 
