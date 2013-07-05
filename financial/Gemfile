@@ -15,6 +15,7 @@ end
 
 group :development, :test do
   gem 'brakeman'
+  gem 'ffaker'
   gem 'guard-rspec'
   gem 'guard-rubocop'
   gem 'pry-debugger'
