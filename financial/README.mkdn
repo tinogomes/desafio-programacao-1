@@ -4,4 +4,3 @@ Resposta ao [desafio 1 da Myfreecomm](https://github.com/myfreecomm/desafio-prog
 
 ## Preparar ambiente de desenvolvimento
 
-https://github.com/myfreecomm/desafio-programacao-1

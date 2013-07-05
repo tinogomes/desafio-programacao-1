@@ -4,6 +4,7 @@ require_relative '../../app/parsers/tab_parser'
 
 describe TabParser do
   let(:file) { File.open('./spec/fixtures/example_input.tab') }
+  let(:parser) { TabParser.new(file) }
 
   describe '#process' do
     it 'should delegate to an instance parser' do
@@ -15,26 +16,20 @@ describe TabParser do
     end
   end
 
-  subject { TabParser.new(file) }
-
-  before { subject.process! }
+  subject { parser.process! }
 
   it 'should process csv tab file to array hashes' do
     expect(subject.results.count).to eql(4)
   end
 
   describe 'checking first row' do
-    let(:first_row) { subject.results.first }
+    subject { parser.process!.results.first }
 
-    it 'should be equal to expected hash' do
-      expect(first_row).to eql({
-        'item_description' => 'R$10 off R$20 of food',
-        'item_price' => '10.0',
-        'merchant_address' => '987 Fake St',
-        'merchant_name' => %Q{Bob's Pizza},
-        'purchase_count' => '2',
-        'purchaser_name' => 'João Silva'
-      })
-    end
+    its(:item_description) { should eql 'R$10 off R$20 of food' }
+    its(:item_price) { should eql BigDecimal.new('10.0') }
+    its(:merchant_address) { should eql '987 Fake St' }
+    its(:merchant_name) { should eql %Q{Bob's Pizza} }
+    its(:purchase_count) { should eql 2 }
+    its(:purchaser_name) { should eql 'João Silva' }
   end
 end

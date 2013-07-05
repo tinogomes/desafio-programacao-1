@@ -5,7 +5,7 @@ require 'spec_helper'
 describe ImporterController do
   describe 'GET "index"' do
     it 'returns http success' do
-      get 'index'
+      get 'new'
 
       expect(response).to be_success
     end
