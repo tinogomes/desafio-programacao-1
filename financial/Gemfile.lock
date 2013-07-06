@@ -93,6 +93,7 @@ GEM
     parser (2.0.0.beta9)
       ast (~> 1.1)
       slop (~> 3.4, >= 3.4.5)
+    pg (0.15.1)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -205,6 +206,7 @@ DEPENDENCIES
   guard-rspec
   guard-rubocop
   jquery-rails
+  pg
   pry-debugger
   quiet_assets
   rails (= 4.0.0)
