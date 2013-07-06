@@ -1,0 +1,9 @@
+# Common configuration.
+AllCops:
+  # Include gemspec and Rakefile
+  Includes:
+    - '**/*.gemspec'
+    - '**/Rakefile'
+  Excludes:
+    - 'bin/*'
+    - 'db/schema.rb'
