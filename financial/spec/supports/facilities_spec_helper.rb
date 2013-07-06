@@ -1,4 +1,5 @@
 # encoding: utf-8
+# rubocop:disable SpaceAroundOperators
 
 module FacilitySpecHelper
   def define_item
@@ -14,6 +15,8 @@ module FacilitySpecHelper
 
   def decimal_generator
     a_number = (rand * (10 ** rand(4))).round(2)
+
     BigDecimal.new(a_number.to_s)
   end
 end
+# rubocop:disable SpaceAroundOperators

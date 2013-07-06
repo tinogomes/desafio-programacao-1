@@ -16,9 +16,9 @@ describe Trading do
   let(:transaction_key) { '123123123123' }
   let(:item) { define_item }
   let(:results) { [item] }
-  
+
   subject { Trading.new(results, transaction_key) }
-  
+
   it 'should store sales' do
     expect(subject.create!).to change(Sale, :count).to(1)
   end
