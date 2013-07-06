@@ -1,7 +1,7 @@
 # encoding: utf-8
 # rubocop:disable SpaceAroundOperators
 
-module FacilitySpecHelper
+module FacilitiesSpecHelper
   def define_item
     {
       purchaser_name: Faker::Name.name,

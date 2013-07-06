@@ -9,7 +9,7 @@ class Sale < ActiveRecord::Base
     :merchant_name,
     :purchase_count,
     :transaction_key
-    ]
+  ]
 
   validates(*REQUIRED_ATTRIBUTES, presence: true)
 

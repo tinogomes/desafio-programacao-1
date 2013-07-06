@@ -20,6 +20,6 @@ describe Trading do
   subject { Trading.new(results, transaction_key) }
 
   it 'should store sales' do
-    expect(subject.create!).to change(Sale, :count).to(1)
+    expect { subject.create! }.to change(Sale, :count).to(1)
   end
 end
