@@ -1,12 +1,8 @@
 # encoding: utf-8
 
-def read_secret_token
-  secret_token = YAML.load_file('config/secret_token.yml')[Rails.env]
-  raise if secret_token.blank?
-  secret_token
-rescue => exception
-  puts '** Error on load "config/secret_token.yml"'
-  raise exception
+if ENV['SECRET_TOKEN'].nil? || ENV['SECRET_TOKEN'].empty?
+  warn('SECRET_TOKEN is not defined. Try `export SECRET_TOKEN=$(rake secret)`')
+  exit 1
 end
 
-Financial::Application.config.secret_key_base = read_secret_token
+Financial::Application.config.secret_key_base = ENV['SECRET_TOKEN']

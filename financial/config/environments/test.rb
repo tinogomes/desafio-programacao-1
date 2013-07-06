@@ -37,3 +37,5 @@ Financial::Application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 end
+
+ENV['SECRET_TOKEN'] = '981917b9586a52b22e4b964b987b2f5b9a6deb00c131718e3d169c4a976ad3b91ecb93057cdd82a0334b9e0ddc8edf66898f75f24540910c03ed4b3940bb9044'
