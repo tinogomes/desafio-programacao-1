@@ -25,6 +25,4 @@ ActiveRecord::Schema.define(version: 20130705163347) do
     t.datetime "updated_at"
   end
 
-  add_index "sales", ["transaction_key"], name: "index_sales_on_transaction_key", unique: true
-
 end

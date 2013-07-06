@@ -4,32 +4,34 @@ require 'bigdecimal'
 
 # TabParser
 class TabParser
-  attr_reader :file, :results
+  attr_reader :content, :results
 
-  def self.process(file)
-    new(file).process!
+  def self.process(content)
+    new(content).process!
   end
 
-  def initialize(file)
-    @file = file
+  def initialize(content)
+    @content = content
     @results = []
   end
 
   def process!
     require 'csv'
-    @results = CSV.parse(file, col_sep: "\t", headers: :first_row).map do |row|
+    @results = current_csv.map do |row|
       normalize_row(row.to_hash)
     end
     self
   end
 
-  def normalize_row(hash)
+  private
+
+  def normalize_row(row_hash)
     attributes = {}
-    hash.map do |key, value|
+    row_hash.map do |key, value|
       attribute = slugify(key)
       attributes[attribute] = normalize_for(attribute, value)
     end
-    OpenStruct.new(attributes)
+    attributes
   end
 
   def normalize_for(key, value)
@@ -42,5 +44,12 @@ class TabParser
 
   def slugify(string)
     string.tr(' ', '_')
+  end
+
+  def current_csv
+    CSV.parse(content,
+              col_sep: "\t",
+              headers: :first_row,
+              encoding: 'UTF-8')
   end
 end

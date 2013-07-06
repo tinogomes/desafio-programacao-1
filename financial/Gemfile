@@ -19,6 +19,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-rubocop'
   gem 'pry-debugger'
+  gem 'quiet_assets'
   gem 'rspec-rails'
   gem 'rubocop'
 end

@@ -21,5 +21,9 @@ describe ImporterController do
 
       expect(response).to redirect_to(root_path)
     end
+
+    it 'should upload and process file' do
+      expect { post 'create', file: file }.to change(Sale, :count).to(4)
+    end
   end
 end

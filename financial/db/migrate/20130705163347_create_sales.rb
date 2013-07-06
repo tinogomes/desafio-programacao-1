@@ -14,8 +14,6 @@ class CreateSales < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    add_index :sales, :transaction_key, unique: true
   end
 end
 # rubocop:enable MethodLength

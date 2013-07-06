@@ -19,6 +19,4 @@ class Sale < ActiveRecord::Base
               greater_than_or_equal_to: 1,
               only_integer: true
             }
-
-  validates :transaction_key, uniqueness: true
 end
