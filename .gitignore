@@ -1,2 +1,10 @@
+/config/*.yml
+/.bundle
+/db/*.sqlite3
+/log/*.log
+/tmp
+*~
+.*~
+/public/uploads/
 .ruby-version
 .ruby-gemset
