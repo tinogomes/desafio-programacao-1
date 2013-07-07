@@ -28,7 +28,8 @@ ActiveRecord::Schema.define(version: 20130705163347) do
   add_index "sale_items", ["sale_id"], name: "index_sale_items_on_sale_id"
 
   create_table "sales", force: true do |t|
-    t.string   "transaction_key", limit: 32, null: false
+    t.string   "transaction_key", limit: 32,                          null: false
+    t.decimal  "total_price",                precision: 12, scale: 2, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

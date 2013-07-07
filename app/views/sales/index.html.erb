@@ -1,0 +1,29 @@
+<h1>Sales</h1>
+
+<div class="row">
+	<div class="small-12 columns">
+		<table class="small-12">
+			<thead>
+				<tr>
+					<th>transaction key</th>
+					<th>created_at</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @sales.each do |sale| %>
+				<tr>
+					<td><%= link_to sale.transaction_key, sale %></td>
+					<td><%= time_ago_in_words(sale.created_at) %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-12 columns">
+		<%= link_to 'Import Sales', new_sale_path, class: 'button round' %>
+	</div>
+</div>

@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 Financial::Application.routes.draw do
-  resources :importer, only: [:new, :create]
+  resources :sales, except: [:edit, :update, :destroy]
 
   root to: 'home#index'
 end

@@ -5,6 +5,7 @@ class CreateSales < ActiveRecord::Migration
   def change
     create_table :sales do |t|
       t.string :transaction_key, null: false, limit: 32
+      t.decimal :total_price, null: false, precision: 12, scale: 2
 
       t.timestamps
     end
