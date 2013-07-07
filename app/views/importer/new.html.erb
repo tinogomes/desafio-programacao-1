@@ -1,5 +1,15 @@
-<h2>Import Sales</h2>
+<h1>Import Sales</h1>
 <%= form_tag importer_index_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
+	<fieldset>
+		<legend>Import a file</legend>
+		
+		<div class="row">
+			<div class="small-10 columns">
+				<%= file_field_tag :file, class: 'tiny round disabled button' %>
+			</div>
+			<div class="small-2 columns">
+				<%= submit_tag "Import", class: 'button' %>
+			</div>
+		</div>
+	</fieldset>
 <% end %>
