@@ -3,7 +3,7 @@
 class Trading
   class InvalidSales < RuntimeError; end
 
-  attr_reader :sales
+  attr_reader :sale
 
   def self.create!(results, transaction_key = nil)
     new(results, transaction_key).create!
@@ -26,19 +26,19 @@ class Trading
   attr_reader :results, :transaction_key
 
   def load_sales!
-    @sales = []
+    @sale = Sale.new(transaction_key: transaction_key)
 
     results.each do |attributes|
-      @sales << Sale.new(attributes.merge(transaction_key: transaction_key))
+      @sale.items.build(attributes)
     end
   end
 
   def save_all_sales!
     raise InvalidSales if invalid_sales?
-    sales.map(&:save!)
+    sale.save!
   end
 
   def invalid_sales?
-    sales.map(&:valid?).include?(false)
+    sale.items.map(&:valid?).include?(false)
   end
 end
