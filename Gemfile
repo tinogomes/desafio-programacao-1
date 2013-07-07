@@ -8,7 +8,6 @@ gem 'unicorn-rails'
 gem 'jquery-rails'
 gem 'rails', '4.0.0'
 gem 'sass-rails', '~> 4.0.0'
-gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 gem 'pg', group: :production
 
@@ -25,4 +24,5 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'sqlite3'
 end
