@@ -6,6 +6,7 @@
 			<thead>
 				<tr>
 					<th>transaction key</th>
+					<th>total price</th>
 					<th>created_at</th>
 				</tr>
 			</thead>
@@ -14,7 +15,8 @@
 				<% @sales.each do |sale| %>
 				<tr>
 					<td><%= link_to sale.transaction_key, sale %></td>
-					<td><%= time_ago_in_words(sale.created_at) %></td>
+					<td><%= sale.total_price %></td>
+					<td><%= sale.created_at %></td>
 				</tr>
 				<% end %>
 			</tbody>

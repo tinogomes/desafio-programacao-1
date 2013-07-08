@@ -1,2 +1,53 @@
 <h1>Sales#show</h1>
-<p>Find me in app/views/sales/show.html.erb</p>
+
+<fieldset>
+	<legend>details</legend>
+
+	<div class="row">
+		<div class="large-9 columns">
+			<%= label :sale, :transaction_key %>
+			<%= text_field :sale, :transaction_key, readonly: true %>
+		</div>
+		<div class="large-3 columns">
+			<%= label :sale, :created_at %>
+			<%= text_field :sale, :created_at, readonly: true %>
+		</div>
+	</div>
+</fieldset>
+
+<fieldset>
+	<legend>items</legend>
+	
+	<div class="row">
+		<div class="large-12 columns">
+			<table>
+				<thead>
+					<tr>
+						<th>Purchaser</th>
+						<th>Item Description</th>
+						<th>Item Price</th>
+						<th>Purchase Count</th>
+						<th>Merchant Address</th>
+						<th>Merchant Name</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<% @sale.items.each do |item| %>
+					<tr>
+						<td><%= item.purchaser_name %></td>
+						<td><%= item.item_description %></td>
+						<td><%= item.item_price %></td>
+						<td><%= item.purchase_count %></td>
+						<td><%= item.merchant_address %></td>
+						<td><%= item.merchant_name %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="large-offset-9 large-3 columns">
+			<strong>Total: </strong><%= @sale.total_price %>
+		</div>
+	</div>
+</fieldset>
