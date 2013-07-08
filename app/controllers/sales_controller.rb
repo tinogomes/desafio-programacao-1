@@ -6,7 +6,7 @@ class SalesController < ApplicationController
   end
 
   def show
-    @sale = Sale.find_by_transaction_key! params[:id]
+    @sale = SalePresenter.new(Sale.find_by_transaction_key! params[:id])
   end
 
   def create

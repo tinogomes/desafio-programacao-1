@@ -8,7 +8,7 @@ describe HomeController do
     it 'returns http success' do
       get 'index'
 
-      response.should be_success
+      redirect_to sales_path
     end
   end
 

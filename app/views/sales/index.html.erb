@@ -12,10 +12,10 @@
 			</thead>
 
 			<tbody>
-				<% @sales.each do |sale| %>
+				<% @sales.each do |_sale|; sale = SalePresenter.new(_sale) %>
 				<tr>
-					<td><%= link_to sale.transaction_key, sale %></td>
-					<td><%= sale.created_at %></td>
+					<td><%= link_to sale.transaction_key, _sale %></td>
+					<td><%= time_tag(sale.created_at) %></td>
 					<td class="number"><%= sale.total_price %></td>
 				</tr>
 				<% end %>

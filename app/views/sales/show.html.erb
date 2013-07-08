@@ -6,11 +6,11 @@
 	<div class="row">
 		<div class="large-9 columns">
 			<%= label :sale, :transaction_key %>
-			<%= text_field :sale, :transaction_key, readonly: true %>
+			<p class='as-input'><%= @sale.transaction_key %></p>
 		</div>
 		<div class="large-3 columns">
 			<%= label :sale, :created_at %>
-			<%= text_field :sale, :created_at, readonly: true %>
+			<%= time_tag(@sale.created_at, class: 'as-input number') %>
 		</div>
 	</div>
 </fieldset>
@@ -42,7 +42,7 @@
 						<td><%= item.item_description %></td>
 						<td class="quantity"><%= item.purchase_count %></td>
 						<td class="number"><%= item.item_price %></td>
-						<td class="number"><%= item.item_price * item.purchase_count %></td>
+						<td class="number"><%= item.item_total %></td>
 					</tr>
 					<% end %>
 				</tbody>

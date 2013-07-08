@@ -2,6 +2,14 @@
 # rubocop:disable SpaceAroundOperators
 
 module FacilitiesSpecHelper
+  def build_sale
+    Sale.new(transaction_key: random_md5).tap do |sale|
+      rand(1..4).times do
+        sale.items.build define_item
+      end
+    end
+  end
+
   def define_item
     {
       purchaser_name: Faker::Name.name,
@@ -17,6 +25,10 @@ module FacilitiesSpecHelper
     a_number = (rand * (10 ** rand(4))).round(2)
 
     BigDecimal.new(a_number.to_s)
+  end
+
+  def random_md5
+    '1234567890abcdef1234567890abcdef'.split('').shuffle.join
   end
 end
 # rubocop:disable SpaceAroundOperators
