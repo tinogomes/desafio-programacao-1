@@ -1,6 +1,0 @@
-# financial
-
-Resposta ao [desafio 1 da Myfreecomm](https://github.com/myfreecomm/desafio-programacao-1)
-
-## Preparar ambiente de desenvolvimento
-
