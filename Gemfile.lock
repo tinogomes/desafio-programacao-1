@@ -93,6 +93,7 @@ GEM
     mime-types (1.23)
     minitest (4.7.5)
     multi_json (1.7.7)
+    newrelic_rpm (3.6.5.130)
     parser (2.0.0.beta9)
       ast (~> 1.1)
       slop (~> 3.4, >= 3.4.5)
@@ -212,6 +213,7 @@ DEPENDENCIES
   guard-rubocop
   jquery-rails
   kaminari
+  newrelic_rpm
   pg
   pry-debugger
   quiet_assets
