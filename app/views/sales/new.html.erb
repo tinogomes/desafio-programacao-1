@@ -1,15 +1,15 @@
 <h1>Import Sales</h1>
+
 <%= form_tag sales_path, multipart: true do %>
 	<fieldset>
 		<legend>Import a file</legend>
 		
 		<div class="row">
-			<div class="small-10 columns">
+			<div class="small-12 columns">
 				<%= file_field_tag :file, class: 'radius disabled button' %>
-			</div>
-			<div class="small-2 columns">
-				<%= submit_tag "Send file", class: 'radius button' %>
 			</div>
 		</div>
 	</fieldset>
+	<%= submit_tag "Send file", class: 'button round' %>
+	<%= link_to "Back to sales", sales_path, class: 'button secondary round right' %>
 <% end %>

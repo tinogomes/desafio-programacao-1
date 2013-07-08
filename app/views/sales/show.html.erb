@@ -1,4 +1,4 @@
-<h1>Sales</h1>
+<h1>Sale</h1>
 
 <fieldset>
 	<legend>details</legend>
@@ -20,15 +20,16 @@
 	
 	<div class="row">
 		<div class="large-12 columns">
-			<table>
+			<table class="small-12">
 				<thead>
 					<tr>
-						<th>Purchaser</th>
-						<th>Item Description</th>
-						<th>Item Price</th>
-						<th>Purchase Count</th>
-						<th>Merchant Address</th>
-						<th>Merchant Name</th>
+						<th class="small-1">Purchaser</th>
+						<th class="small-2">Merchant Name</th>
+						<th class="small-2">Merchant Address</th>
+						<th class="small-3">Item Description</th>
+						<th class="small-1 quantity">Purchase Count</th>
+						<th class="small-1 number">Item Price</th>
+						<th class="small-1 number">Item Total</th>
 					</tr>
 				</thead>
 				
@@ -36,18 +37,21 @@
 					<% @sale.items.each do |item| %>
 					<tr>
 						<td><%= item.purchaser_name %></td>
-						<td><%= item.item_description %></td>
-						<td><%= item.item_price %></td>
-						<td><%= item.purchase_count %></td>
-						<td><%= item.merchant_address %></td>
 						<td><%= item.merchant_name %></td>
+						<td><%= item.merchant_address %></td>
+						<td><%= item.item_description %></td>
+						<td class="quantity"><%= item.purchase_count %></td>
+						<td class="number"><%= item.item_price %></td>
+						<td class="number"><%= item.item_price * item.purchase_count %></td>
 					</tr>
 					<% end %>
 				</tbody>
 			</table>
 		</div>
-		<div class="large-offset-9 large-3 columns">
+		<div class="large-offset-9 large-3 columns number">
 			<strong>Total: </strong><%= @sale.total_price %>
 		</div>
 	</div>
 </fieldset>
+
+<%= link_to "Back to sales", sales_path, class: 'button secondary round right' %>

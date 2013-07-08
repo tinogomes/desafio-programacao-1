@@ -5,9 +5,9 @@
 		<table class="small-12">
 			<thead>
 				<tr>
-					<th>transaction key</th>
-					<th>total price</th>
-					<th>created_at</th>
+					<th class="small-7">transaction key</th>
+					<th class="small-3">created_at</th>
+					<th class="small-2 number">total price</th>
 				</tr>
 			</thead>
 
@@ -15,8 +15,8 @@
 				<% @sales.each do |sale| %>
 				<tr>
 					<td><%= link_to sale.transaction_key, sale %></td>
-					<td><%= sale.total_price %></td>
 					<td><%= sale.created_at %></td>
+					<td class="number"><%= sale.total_price %></td>
 				</tr>
 				<% end %>
 			</tbody>
